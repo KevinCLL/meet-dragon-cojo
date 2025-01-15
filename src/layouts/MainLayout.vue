@@ -1,13 +1,15 @@
 <template>
   <div class="main-layout">
-    <NavBar />
+    <el-header>
+      <NavBar />
+    </el-header>
 
-    <main>
-      <!-- Aquí las vistas inyectadas por el router -->
+    <el-main>
       <router-view />
-    </main>
-
-    <FooterComponent />
+    </el-main>
+    <el-footer>
+      <FooterComponent />
+    </el-footer>
   </div>
 </template>
 

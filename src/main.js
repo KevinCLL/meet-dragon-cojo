@@ -1,31 +1,25 @@
-// src/main.js
 import { createApp } from 'vue'
+import { createHead } from '@vueuse/head'
 import App from './App.vue'
 
-// Element Plus
+// Styles
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-
-// CSS global
 import './assets/css/styles.css'
 
-// Pinia
+// Extras
 import pinia from './stores'
-
-// Router
 import router from './router'
+import i18n from './i18n'
 
 // Crear la app
 const app = createApp(App)
+const head = createHead()
 
-// Usar Element Plus
 app.use(ElementPlus)
-
-// Usar Pinia
 app.use(pinia)
-
-// Usar Router
 app.use(router)
+app.use(head)
+app.use(i18n)
 
-// Montar la app
 app.mount('#app')

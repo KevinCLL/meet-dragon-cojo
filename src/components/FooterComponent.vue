@@ -5,7 +5,7 @@
       <p>
         Creado por
         <a
-          href="https://malkevnia.com"
+          href="http://malkevnia.com/"
           target="_blank"
           rel="noopener"
           style="color:var(--color-dorado);"

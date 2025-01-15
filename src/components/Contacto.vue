@@ -38,7 +38,7 @@
             v-model="form.mensaje"
             name="Mensaje"
             type="textarea"
-            rows="5"
+            :rows="5"
             required
           />
         </el-form-item>

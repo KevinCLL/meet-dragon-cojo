@@ -4,17 +4,15 @@
     <SobreNosotros />
     <Mandamientos />
     <Comunidad />
-    <Contacto />
   </div>
 </template>
 
 <script setup>
 import NavBar from '@/components/NavBar.vue'
-import HeroSection from '@/components/HeroSection.vue'
-import SobreNosotros from '@/components/SobreNosotros.vue'
-import Mandamientos from '@/components/Mandamientos.vue'
-import Comunidad from '@/components/Comunidad.vue'
-import Contacto from '@/components/Contacto.vue'
+import HeroSection from '@/components/Landing/HeroSection.vue'
+import SobreNosotros from '@/components/Landing/SobreNosotros.vue'
+import Mandamientos from '@/components/Landing/Mandamientos.vue'
+import Comunidad from '@/components/Landing/Comunidad.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 </script>
 
