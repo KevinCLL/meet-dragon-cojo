@@ -1,59 +1,65 @@
 <template>
-  <el-header height="auto">
-    <nav style="display: flex; justify-content: space-between; align-items:center; padding: 1rem;">
-      <!-- Logo o título -->
-      <router-link :to="localePath('')">
-        <strong style="font-size: 1.2rem;">{{ $t('dragonCojo') }}</strong>
+  <el-header class="sticky top-0 z-50 w-full p-0 shadow-md bg-white">
+    <nav class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200">
+      <!-- Logo -->
+      <router-link :to="localePath('')" class="flex items-center space-x-2">
+        <img class="max-w-full h-auto w-12" src="@/assets/images/logo-mini.png" alt="Logo" />
+        {{ $t('dragonCojo') }}
       </router-link>
-
-      <!-- Menú de opciones -->
-      <el-menu mode="horizontal" :default-active="activeItem" background-color="transparent">
-        <el-menu-item index="home">
-          <router-link :to="localePath('')">
-            {{ currentLang.toUpperCase() }} Home
-          </router-link>
-        </el-menu-item>
-
-        <el-menu-item index="contact">
-          <router-link :to="localePath('contacto')">
-            Contact
-          </router-link>
-        </el-menu-item>
+      <el-menu
+        :default-active="activeIndex"
+        class="text-gray-800"
+        mode="horizontal"
+        :ellipsis="false"
+      >
+        <!-- Otras opciones de menú -->
+        <el-sub-menu index="1">
+          <template #title>{{ $t('info') }}</template>
+          <el-menu-item @click="() => switchPath('')" index="home">
+            <span> {{ $t('aboutus') }} </span>
+          </el-menu-item>
+          <el-menu-item @click="() => switchPath('contacto')" index="contact">
+            <span> {{ $t('contact') }} </span>
+          </el-menu-item>
+        </el-sub-menu>
+        <!-- Idiomas -->
+        <el-sub-menu index="2">
+          <template #title>{{ $t('languages') }}</template
+          ><picture>
+            <source media="(min-width: )" srcset="" />
+            <img src="" alt="" />
+          </picture>
+          <el-menu-item @click="switchLang('es')" index="es">
+            <span>Español</span>
+          </el-menu-item>
+          <el-menu-item @click="switchLang('en')" index="en">
+            <span>English</span>
+          </el-menu-item>
+          <el-menu-item @click="switchLang('ca')" index="ca">
+            <span>Català</span>
+          </el-menu-item>
+        </el-sub-menu>
       </el-menu>
-
-      <!-- Dropdown de idiomas -->
-      <div>
-        <el-dropdown trigger="hover">
-          <span class="el-dropdown-link">Idiomas</span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item @click="switchLang('es')">Español</el-dropdown-item>
-              <el-dropdown-item @click="switchLang('en')">English</el-dropdown-item>
-              <el-dropdown-item @click="switchLang('ca')">Català</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-      </div>
     </nav>
   </el-header>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
+const activeIndex = ref('1')
 // Diccionario de slugs a traducir
-// (Home route está en '' para todos)
 const slugMap = {
-  '':       { es: '',         en: '',       ca: '' },
-  // La clave "contacto" (ES) mapea a "contact" (EN) y "contacta" (CA)
-  'contacto': { es: 'contacto', en: 'contact', ca: 'contacta' },
+  '': { es: '', en: '', ca: '' },
+  // ES
+  contacto: { es: 'contacto', en: 'contact', ca: 'contacta' },
 
-  // La clave "contact" (EN) mapea a "contacto" (ES) y "contacta" (CA)
-  'contact': { es: 'contacto', en: 'contact', ca: 'contacta' },
+  // EN
+  contact: { es: 'contacto', en: 'contact', ca: 'contacta' },
 
-  // La clave "contacta" (CA) mapea a "contact" (EN) y "contacto" (ES)
-  'contacta': { es: 'contacto', en: 'contact', ca: 'contacta' }
+  // CA
+  contacta: { es: 'contacto', en: 'contact', ca: 'contacta' },
 }
 
 const router = useRouter()
@@ -68,7 +74,11 @@ const activeItem = computed(() => {
   return 'home'
 })
 
-const currentLang = computed(() => route.params.lang || 'es')
+const currentLang = computed(() => {
+  const segments = route.path.split('/')
+  const lang = segments[1]
+  return lang || 'es'
+})
 
 // switchLang: cambia /es/contacto => /en/contact => /ca/contacta
 function switchLang(lang) {
@@ -91,8 +101,12 @@ function localePath(slug) {
   // Convertimos slug según el diccionario
   if (slugMap[slug]) {
     return `/${lang}/${slugMap[slug][lang]}`
-  } 
+  }
   return `/${lang}/${slug}` // fallback
 }
 
+function switchPath(slug) {
+  const path = localePath(slug)
+  router.replace(path)
+}
 </script>

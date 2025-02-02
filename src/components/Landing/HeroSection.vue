@@ -1,33 +1,32 @@
 <template>
-  <header id="top">
-    <div class="container">
+  <header id="top" class="w-full bg-white overflow-hidden">
+    <div class="max-w-4xl w-full mx-auto px-4 py-8 flex flex-col items-center text-center">
       <img
         src="@/assets/images/escudo-de-armas.png"
         alt="Logo El Dragón Cojo"
-        class="escudo-logo"
+        class="max-w-full h-auto w-24 sm:w-32 md:w-40 lg:w-48"
       />
-      <h1 class="titulo-principal">El Dragón Cojo</h1>
-      <p class="subtitulo-principal">
-        El mejor lugar para disfrutar de
-        <strong>juegos de mesa</strong>, <strong>rol</strong> y mucha
-        imaginación. Vive aventuras épicas con dados, historias y camaradería.
+      <h1 class="text-3xl sm:text-4xl font-bold mt-4 titulo-principal">
+        {{ $t('dragonCojo') }}
+      </h1>
+      <p class="text-lg sm:text-xl mt-2 subtitulo-principal">
+        {{ $t('tagline') }}
       </p>
 
-      <div style="text-align:center; margin: 10px 0;">
-        <audio controls style="max-width:250px;">
+      <div class="mt-4">
+        <audio controls class="max-w-xs">
           <source src="@/assets/audio/song.mp3" type="audio/mpeg" />
           Tu navegador no soporta el elemento de audio.
         </audio>
       </div>
 
-      <!-- Botón CTA con <el-button> -->
       <el-button
-        class="btn-cta"
+        class="btn-cta font-bold mt-4"
         type="primary"
         :auto-insert-space="false"
         @click="scrollToComunidad"
       >
-        Únete a la aventura
+        {{ $t('joinus') }}
       </el-button>
     </div>
   </header>
@@ -39,10 +38,3 @@ function scrollToComunidad() {
   if (el) el.scrollIntoView({ behavior: 'smooth' })
 }
 </script>
-
-<style scoped>
-/* Minimal override si quieres cambiar algo del <el-button> */
-.el-button.btn-cta {
-  font-weight: bold;
-}
-</style>
