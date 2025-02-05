@@ -1,6 +1,6 @@
 <template>
   <section id="comunidad" class="fade-in-section mt-12">
-    <div class="container" style="text-align: center">
+    <div class="text-center">
       <h2 class="text-2xl">{{ $t('joinUs') }}</h2>
       <p class="mt-2">
         {{ $t('joinUsDescription') }}
