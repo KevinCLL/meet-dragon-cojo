@@ -1,47 +1,41 @@
 <template>
-  <el-header class="sticky top-0 z-50 w-full p-0 shadow-md bg-white">
-    <nav class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200">
-      <!-- Logo -->
-      <router-link :to="localePath('')" class="flex items-center space-x-2">
-        <img class="max-w-full h-auto w-12" src="@/assets/images/logo-mini.png" alt="Logo" />
-        {{ $t('dragonCojo') }}
-      </router-link>
-      <el-menu
-        :default-active="activeIndex"
-        class="text-gray-800"
-        mode="horizontal"
-        :ellipsis="false"
-      >
-        <!-- Otras opciones de menú -->
-        <el-sub-menu index="1">
-          <template #title>{{ $t('info') }}</template>
-          <el-menu-item @click="() => switchPath('')" index="home">
-            <span> {{ $t('aboutus') }} </span>
-          </el-menu-item>
-          <el-menu-item @click="() => switchPath('contacto')" index="contact">
-            <span> {{ $t('contact') }} </span>
-          </el-menu-item>
-        </el-sub-menu>
-        <!-- Idiomas -->
-        <el-sub-menu index="2">
-          <template #title>{{ $t('languages') }}</template
-          ><picture>
-            <source media="(min-width: )" srcset="" />
-            <img src="" alt="" />
-          </picture>
-          <el-menu-item @click="switchLang('es')" index="es">
-            <span>Español</span>
-          </el-menu-item>
-          <el-menu-item @click="switchLang('en')" index="en">
-            <span>English</span>
-          </el-menu-item>
-          <el-menu-item @click="switchLang('ca')" index="ca">
-            <span>Català</span>
-          </el-menu-item>
-        </el-sub-menu>
-      </el-menu>
-    </nav>
-  </el-header>
+  <nav class="w-full flex items-center justify-between px-4 py-0 bg-white border-b border-gray-200">
+    <!-- Logo -->
+    <router-link :to="localePath('')" class="flex items-center space-x-2">
+      <img class="max-w-full h-auto w-12" src="@/assets/images/logo-mini.png" alt="Logo" />
+      {{ $t('dragonCojo') }}
+    </router-link>
+    <el-menu
+      :default-active="activeIndex"
+      class="text-gray-800"
+      mode="horizontal"
+      :ellipsis="false"
+    >
+      <!-- Otras opciones de menú -->
+      <el-sub-menu index="1">
+        <template #title>{{ $t('info') }}</template>
+        <el-menu-item @click="() => switchPath('')" index="home">
+          <span> {{ $t('aboutus') }} </span>
+        </el-menu-item>
+        <el-menu-item @click="() => switchPath('contacto')" index="contact">
+          <span> {{ $t('contact') }} </span>
+        </el-menu-item>
+      </el-sub-menu>
+      <!-- Idiomas -->
+      <el-sub-menu index="2">
+        <template #title>{{ $t('languages') }}</template>
+        <el-menu-item @click="switchLang('es')" index="es">
+          <span>Español</span>
+        </el-menu-item>
+        <el-menu-item @click="switchLang('en')" index="en">
+          <span>English</span>
+        </el-menu-item>
+        <el-menu-item @click="switchLang('ca')" index="ca">
+          <span>Català</span>
+        </el-menu-item>
+      </el-sub-menu>
+    </el-menu>
+  </nav>
 </template>
 
 <script setup>

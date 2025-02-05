@@ -1,6 +1,6 @@
 <template>
   <div class="main-layout">
-    <el-header>
+    <el-header class="sticky top-0 z-50 w-full !p-0 m-0 bg-white shadow">
       <NavBar />
     </el-header>
 
@@ -10,6 +10,7 @@
     <el-footer>
       <FooterComponent />
     </el-footer>
+    <el-backtop :right="15" :bottom="15" />
   </div>
 </template>
 

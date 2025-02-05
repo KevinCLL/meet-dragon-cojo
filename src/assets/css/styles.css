@@ -1,1 +1,8 @@
 @import 'tailwindcss';
+
+.el-menu--horizontal {
+  border-bottom: 0 !important;
+}
+.el-header {
+  border-bottom: none !important;
+}

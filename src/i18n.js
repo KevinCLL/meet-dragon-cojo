@@ -19,13 +19,14 @@ const messages = {
     messageRules: 'Por favor escribe un mensaje',
     send: 'Enviar',
 
-    tagline:
-      'El mejor lugar para disfrutar de juegos de mesa, rol y mucha imaginación. Vive aventuras épicas con dados, historias y camaradería.',
+    tagline: 'El mejor lugar para disfrutar de juegos de mesa, rol en Mallorca.',
+    tagline2:
+      'Comparte con nosotros épicas aventuras con dados, miniaturas, meeples, cartas y sobre todo mucha camaradería.',
     joinus: 'Únete a la aventura',
 
     aboutusTitle: '¿Quiénes somos?',
     aboutusDescription:
-      '“El Dragón Cojo” es una comunidad de entusiastas de los juegos de mesa y rol en la isla de Mallorca. Aquí encontrarás un ambiente seguro, respetuoso y muy divertido para compartir tardes inolvidables, organizar tus propias partidas y conocer nuevos amigos con la misma pasión por los dados, la imaginación y todo lo relacionado con este maravilloso mundo lúdico.',
+      '“El Dragón Cojo” es una comunidad de entusiastas de los juegos de mesa y el rol en la isla de Mallorca. Aquí encontrarás un ambiente seguro, respetuoso y muy divertido para compartir tardes inolvidables, organizar tus propias partidas y conocer nuevos amigos con la misma pasión por todo lo relacionado con este maravilloso mundo lúdico.',
     aboutusInvitation:
       'Tanto si eres un veterano con experiencia en múltiples campañas, como si eres un curioso que empieza a explorar distintos tableros y manuales, este es tu lugar. ¡Te esperamos con los brazos abiertos y las fichas preparadas!',
 

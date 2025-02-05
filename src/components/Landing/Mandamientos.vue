@@ -1,39 +1,41 @@
 <template>
-  <section id="mandamientos" class="fade-in-section">
-    <div class="container">
-      <h2>{{ $t('rulesTitle') }}</h2>
+  <section id="mandamientos" class="fade-in-section mt-4">
+    <el-card>
+      <template #header>
+        <h2 class="text-xl text-center">{{ $t('rulesTitle') }}</h2>
+      </template>
 
-      <div class="rules-list">
+      <div class="md:flex lg:flex">
         <!-- Mandamiento I -->
-        <el-card shadow="hover" class="rule-card anim-pop">
-          <h3>{{ $t('ruleI') }}</h3>
-          <ul>
+        <div shadow="hover" class="px-5 rule-card anim-pop">
+          <h3 class="text-lg mb-3">{{ $t('ruleI') }}</h3>
+          <ul class="list-disc">
             <li>{{ $t('ruleI1') }}</li>
             <li>{{ $t('ruleI2') }}</li>
           </ul>
-        </el-card>
+        </div>
 
         <!-- Mandamiento II -->
-        <el-card shadow="hover" class="rule-card anim-pop">
-          <h3>{{ $t('ruleII') }}</h3>
-          <ul>
+        <div shadow="hover" class="px-5 rule-card anim-pop">
+          <h3 class="text-lg mb-3">{{ $t('ruleII') }}</h3>
+          <ul class="list-disc">
             <li>{{ $t('ruleII1') }}</li>
             <li>{{ $t('ruleII2') }}</li>
           </ul>
-        </el-card>
+        </div>
 
         <!-- Mandamiento III -->
-        <el-card shadow="hover" class="rule-card anim-pop">
-          <h3>{{ $t('ruleIII') }}</h3>
-          <ul>
+        <div shadow="hover" class="px-5 rule-card anim-pop">
+          <h3 class="text-lg mb-3">{{ $t('ruleIII') }}</h3>
+          <ul class="list-disc">
             <li>{{ $t('ruleIII1') }}</li>
             <li>{{ $t('ruleIII2') }}</li>
           </ul>
-        </el-card>
+        </div>
       </div>
 
-      <p class="alea-iacta-est">¡Alea Iacta Est!</p>
-    </div>
+      <p class="text-center mt-6 mb-4 text-2xl">¡Alea Iacta Est!</p>
+    </el-card>
   </section>
 </template>
 

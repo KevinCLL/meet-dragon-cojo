@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container footer-compact">
+    <div class="text-center text-sm mt-6 border-t border-gray-500">
       <p>{{ $t('footer', { currentYear: currentYear }) }}</p>
       <p>
         {{ $t('footerCreated') }}

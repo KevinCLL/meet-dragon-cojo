@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   base: '/',
-  plugins: [vue(), vueDevTools(), tailwindcss()],
+  plugins: [vueDevTools(), tailwindcss(), vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -16,5 +16,11 @@ export default defineConfig({
   },
   server: {
     port: 7777,
+    watch: {
+      usePolling: true,
+    },
+  },
+  hmr: {
+    protocol: 'wss',
   },
 })
